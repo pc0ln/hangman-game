@@ -14,7 +14,7 @@ def get_word(words):
     used_words.append(word)
     return word.upper()
 
-def print_char(lives):
+def print_char(lives): # Builds the character for the game
     print("     /|")
     print("    / |")
     if lives < 6:
@@ -75,8 +75,8 @@ def hangman():
                     cur_word.insert(i, guess)
             else:
                 lives-=1
-    if lives == 0: #losing
-        print_char(lives)
+    if lives == 0: #Losing
+        print_char(lives) #Prints character if lost
         print_line(cur_word)
         print("Sorry you ran out of lives :(\n")
         print(f"The word was {word} but you got to "+"".join(cur_word) +"\n")
@@ -85,7 +85,7 @@ def hangman():
         print("Congrats you got the word "+ word + "\n")
     play_again =input("Press Y if you want play again or any other key to leave\n") #ask if want to play again
     if  play_again.upper() == "Y":   
-        hangman() #reiterates so game can be played again
+        hangman() #recurse so game can be played again
 
 
 hangman()
